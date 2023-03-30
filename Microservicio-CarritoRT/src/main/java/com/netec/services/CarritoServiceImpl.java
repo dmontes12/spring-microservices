@@ -1,0 +1,78 @@
+package com.netec.services;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.netec.entities.Articulo;
+import com.netec.entities.Carrito;
+
+@Service
+public class CarritoServiceImpl implements ICarritoService {
+	
+	@Autowired
+	private RestTemplate rest;
+	
+	@Autowired
+	private Carrito carrito;
+
+	@Override
+	public boolean insert(int id) {
+		// TODO Auto-generated method stub
+		
+		Map<String,String> mapa = new HashMap<>();
+		mapa.put("id", String.valueOf(id));
+		String url = "http://localhost:9091/articulo/{id}";
+		
+		try {
+			Articulo art = rest.getForObject(url, Articulo.class,mapa);
+			this.carrito.getArticulos().add(art);
+			return true;
+		} catch (Exception ex) {
+			System.out.println("Error insert"+ex);
+		}
+		
+		return false;
+	}
+
+	@Override
+	public boolean delete(int id) {
+		// TODO Auto-generated method stub
+		Articulo art = this.carrito.getArticulos()
+				.stream()
+				.filter(t->t.getId()==id)
+				.findFirst()
+				.orElse(null);
+		return this.carrito.getArticulos().remove(art);
+	}
+
+	@Override
+	public Articulo searchByName(String name) {
+		// TODO Auto-generated method stub
+		return this.carrito.getArticulos()
+				.stream()
+				.filter(t->t.getNombre().equals(name))
+				.findFirst()
+				.orElse(null);
+	}
+
+	@Override
+	public List<Articulo> showAll() {
+		// TODO Auto-generated method stub
+		return this.carrito.getArticulos();
+	}
+
+	@Override
+	public double total() {
+		// TODO Auto-generated method stub
+		return this.carrito.getArticulos()
+				.stream()
+				.mapToDouble(t->t.getPrecio())
+				.sum();
+	}
+
+}

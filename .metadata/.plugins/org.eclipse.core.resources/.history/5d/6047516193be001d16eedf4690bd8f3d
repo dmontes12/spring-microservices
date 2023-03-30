@@ -1,0 +1,54 @@
+package com.netec.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.netec.dao.IClienteDao;
+import com.netec.entities.Cliente;
+
+@Service
+public class IClienteServiceImpl implements IClienteService{
+	
+	@Autowired
+	private IClienteDao clienteDao;
+
+	@Override
+	public Cliente insert(Cliente cliente) {
+		// TODO Auto-generated method stub
+		return clienteDao.save(cliente);
+	}
+
+	@Override
+	public Cliente findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Cliente cliente) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteById(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Cliente> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Cliente findByCorreo(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+}

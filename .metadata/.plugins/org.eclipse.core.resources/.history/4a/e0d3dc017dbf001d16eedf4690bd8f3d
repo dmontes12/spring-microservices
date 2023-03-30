@@ -1,0 +1,5 @@
+spring.application.name=micro-carritof
+server.port=9093
+
+#configuracion config server
+spring.config.import=optional:configserver:http://localhost:9102

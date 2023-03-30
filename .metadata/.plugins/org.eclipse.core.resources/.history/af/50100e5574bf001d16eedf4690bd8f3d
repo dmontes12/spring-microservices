@@ -1,0 +1,3 @@
+spring.application.name=micro-configuracion
+server.port=9102
+

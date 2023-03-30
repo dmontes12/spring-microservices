@@ -1,0 +1,4 @@
+spring.application.name=micro-gateway
+server.port=9100
+
+spring.config.import=optional:configserver:http://localhost:9102

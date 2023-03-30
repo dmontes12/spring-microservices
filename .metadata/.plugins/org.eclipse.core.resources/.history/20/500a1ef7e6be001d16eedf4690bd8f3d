@@ -1,0 +1,8 @@
+package com.netec.feign;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(name="micro-cliente")
+public interface IClienteFeign {
+	Cliente cliente
+}

@@ -1,0 +1,9 @@
+package com.netec.services;
+
+import com.netec.entities.Cliente;
+
+public interface IClienteService {
+	Cliente findById(int id);
+	Cliente findByCorreo(int id);
+
+}

@@ -1,0 +1,50 @@
+package com.netec.services;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.netec.dao.IPedidoDAO;
+import com.netec.entities.Articulo;
+import com.netec.entities.Cliente;
+import com.netec.entities.Pedido;
+import com.netec.feign.IClienteFeign;
+
+public class IPedidoServiceImpl implements IPedidoService {
+	
+	private final Logger log = LoggerFactory.getLogger(getClass());
+	
+	@Autowired
+	private IClienteFeign feign;
+	
+	@Autowired
+	private IPedidoDAO pedidoDao;
+
+	
+	@Override
+	public boolean insert(String correo) {
+		// TODO Auto-generated method stub
+		try {
+			Cliente cliente = feign.findByCorreo(correo);
+			Pedido pedido = new Pedido();
+			pedido.setCorreoCliente(cliente.getCorreo());
+			pedido.setNombreCliente(cliente.getNombre());
+			//this.pedido.setCorreoCliente(cliente.getCorreo());
+			//this.pedido.setNombreCliente(cliente.getNombre());
+			return true;
+		}catch(Exception ex){
+			log.info("Error: "+ex);
+		}
+		return false;	
+	}
+
+	@Override
+	public List<Pedido> showAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+}

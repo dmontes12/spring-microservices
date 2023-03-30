@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Carrito.java&apos; to &apos;Microservicio-Pedido/src/main/java/com.netec.entities&apos;&#x0D;&#x0A;- Original project: &apos;Microservicio-CarritoFeign&apos;&#x0D;&#x0A;- Destination element: &apos;Microservicio-Pedido/src/main/java/com.netec.entities&apos;&#x0D;&#x0A;- Original element: &apos;com.netec.entities.Carrito.java&apos;" description="Copy compilation unit" destination="=Microservicio-Pedido/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.netec.entities" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.netec.entities{Carrito.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1678752069460" units="1" version="1.0"/>
+</session>

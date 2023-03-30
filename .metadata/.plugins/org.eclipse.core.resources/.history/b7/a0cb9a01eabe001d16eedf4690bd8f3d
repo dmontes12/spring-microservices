@@ -1,0 +1,12 @@
+package com.netec.services;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.netec.entities.Pedido;
+
+public interface IPedidoService extends CrudRepository<Pedido, Integer> {
+	boolean insert(int id);
+	List<Pedido> showAll();
+}

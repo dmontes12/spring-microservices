@@ -1,0 +1,15 @@
+#Nombre de microservicio y puerto
+spring.application.name=micro-pedido
+server.port=9082
+
+#Configuracion de Hibernate
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+spring.jpa.hibernate.ddl-auto=update
+
+#Configuracion de la fuente de datos
+spring.datasource.url=jdbc:mysql://localhost:3306/micro3
+spring.datasource.username=root
+spring.datasource.password=netec
+
+Configuracon de eureka
+#eureka.client.service-url.defaultZone=http://localhost:9098/eureka
